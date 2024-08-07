@@ -1,6 +1,5 @@
 use anyhow::{bail, Error};
 use base64::{engine::general_purpose, Engine};
-use regex::Regex;
 use serde::{Deserialize, Serialize};
 use std::fmt::{self, Display, Formatter};
 use x509_parser::{
@@ -12,8 +11,9 @@ use x509_parser::{
     parse_x509_certificate,
 };
 
-const PEM_HEADER_REG: &str = "-----BEGIN.*-----";
-const PEM_TAIL_REG: &str = "-----END.*----";
+use crate::utils;
+
+
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct CertInfo {
@@ -59,17 +59,11 @@ impl CertInfo {
     }
 
     pub fn from_pem(pem: &str) -> anyhow::Result<Self, Error> {
-        let header_reg = Regex::new(PEM_HEADER_REG)?;
-        let tail_reg = Regex::new(PEM_TAIL_REG).unwrap();
-        let binding = header_reg.replace_all(pem, "");
-        let trim_str = tail_reg.replace_all(&binding, "");
-        let pem_base64 = trim_str
-            .replace(" ", "")
-            .replace("\n", "")
-            .replace("\t", "");
+        let pem_base64 = utils::pem_to_base64(pem)?;
         return Self::from_base64(&pem_base64);
     }
 }
+
 
 impl Display for CertInfo {
     fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
