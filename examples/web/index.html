@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cert-preview · 网页端演示</title>
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif;
+        background: #0f1115;
+        color: #e6e8ec;
+        line-height: 1.5;
+      }
+      main {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 24px 20px 64px;
+      }
+      h1 {
+        font-size: 22px;
+        margin: 0 0 4px;
+      }
+      .sub {
+        color: #9aa0aa;
+        margin: 0 0 24px;
+        font-size: 14px;
+      }
+      section {
+        background: #171a21;
+        border: 1px solid #262b34;
+        border-radius: 10px;
+        padding: 16px;
+        margin-bottom: 16px;
+      }
+      h2 {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: #8b93a1;
+        margin: 0 0 12px;
+      }
+      select,
+      input,
+      textarea,
+      button {
+        font: inherit;
+      }
+      select,
+      input,
+      textarea {
+        background: #0f1115;
+        color: #e6e8ec;
+        border: 1px solid #2c313c;
+        border-radius: 8px;
+        padding: 8px 10px;
+      }
+      textarea {
+        width: 100%;
+        box-sizing: border-box;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 12px;
+      }
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+      }
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        margin-top: 10px;
+        font-size: 13px;
+        color: #b9c0cc;
+      }
+      button {
+        background: #2563eb;
+        color: white;
+        border: 0;
+        border-radius: 8px;
+        padding: 8px 12px;
+        cursor: pointer;
+      }
+      button.secondary {
+        background: #2c313c;
+      }
+      button:hover {
+        filter: brightness(1.08);
+      }
+      pre {
+        margin: 0;
+        white-space: pre-wrap;
+        word-break: break-word;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 12px;
+        max-height: 420px;
+        overflow: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>cert-preview 网页端演示</h1>
+      <p class="sub">
+        同一套核心库（Rust → WebAssembly）：CLI、服务端、浏览器调用完全相同的
+        <code>parse → verify → format</code> 流程，输出不会分叉。
+      </p>
+
+      <section>
+        <h2>1 · 选择示例并调用 API</h2>
+        <div class="row">
+          <select id="scenario"></select>
+        </div>
+        <div class="row" style="margin-top: 12px">
+          <button id="btn-inspect">检测对象 inspect()</button>
+          <button id="btn-json" class="secondary">JSON inspectJson()</button>
+          <button id="btn-text" class="secondary">文本 inspectText()</button>
+          <button id="btn-table" class="secondary">表格 inspectTable()</button>
+          <button id="btn-error" class="secondary">模拟错误输入</button>
+        </div>
+      </section>
+
+      <section>
+        <h2>2 · 输入（可编辑）</h2>
+        <textarea id="input" rows="12" spellcheck="false"></textarea>
+        <div class="field">
+          <label>主机名（可选，用于 SAN 匹配）：</label>
+          <input id="hostname" type="text" placeholder="www.example.com" />
+        </div>
+        <div class="field">
+          <label>评估时间 now（Unix 秒，可选；留空=当前时间）：</label>
+          <input id="now" type="text" placeholder="1717200000" />
+        </div>
+      </section>
+
+      <section>
+        <h2>3 · 输出</h2>
+        <div id="fatal" style="display:none; color:#fca5a5; background:#2a1416; border:1px solid #5b2a2f; border-radius:8px; padding:10px 12px; margin-bottom:12px; font-size:13px;"></div>
+        <pre id="output">选择示例并点击上方按钮。</pre>
+      </section>
+    </main>
+
+    <!-- 浏览器入口：Vite 以 ES module 方式加载 TypeScript 源码 -->
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,214 @@
+{
+  "bundle": {
+    "sourceFormat": "PEM",
+    "items": [
+      {
+        "kind": "certificate",
+        "version": 3,
+        "serialNumber": "78:f8:57:af:c6:a1:e1:ec:05:1b:c9:55:26:18:ba:97:9b:27:6f:09",
+        "subject": {
+          "rdns": [
+            {
+              "oid": "2.5.4.6",
+              "shortName": "C",
+              "value": "GB"
+            },
+            {
+              "oid": "2.5.4.8",
+              "shortName": "ST",
+              "value": "Greater London"
+            },
+            {
+              "oid": "2.5.4.7",
+              "shortName": "L",
+              "value": "London"
+            },
+            {
+              "oid": "2.5.4.10",
+              "shortName": "O",
+              "value": "Example Ltd"
+            },
+            {
+              "oid": "2.5.4.3",
+              "shortName": "CN",
+              "value": "example.com"
+            }
+          ],
+          "commonName": "example.com",
+          "organization": "Example Ltd",
+          "organizationalUnit": null,
+          "country": "GB",
+          "state": "Greater London",
+          "locality": "London",
+          "email": null,
+          "rfc4514": "CN=example.com,O=Example Ltd,L=London,ST=Greater London,C=GB"
+        },
+        "issuer": {
+          "rdns": [
+            {
+              "oid": "2.5.4.6",
+              "shortName": "C",
+              "value": "GB"
+            },
+            {
+              "oid": "2.5.4.8",
+              "shortName": "ST",
+              "value": "Greater London"
+            },
+            {
+              "oid": "2.5.4.7",
+              "shortName": "L",
+              "value": "London"
+            },
+            {
+              "oid": "2.5.4.10",
+              "shortName": "O",
+              "value": "Example Ltd"
+            },
+            {
+              "oid": "2.5.4.3",
+              "shortName": "CN",
+              "value": "example.com"
+            }
+          ],
+          "commonName": "example.com",
+          "organization": "Example Ltd",
+          "organizationalUnit": null,
+          "country": "GB",
+          "state": "Greater London",
+          "locality": "London",
+          "email": null,
+          "rfc4514": "CN=example.com,O=Example Ltd,L=London,ST=Greater London,C=GB"
+        },
+        "validity": {
+          "notBefore": 1704067200,
+          "notAfter": 2019686400,
+          "notBeforeUtc": "2024-01-01T00:00:00Z",
+          "notAfterUtc": "2034-01-01T00:00:00Z"
+        },
+        "publicKey": {
+          "algorithm": {
+            "oid": "1.2.840.113549.1.1.1",
+            "name": "rsaEncryption",
+            "parameters": null
+          },
+          "keySizeBits": 2048,
+          "curve": null,
+          "rsaExponent": "65537",
+          "spkiSha256": "KVi1NTLbxPY+oeDDfghKG4G31HMg7bNC/KliMNgiNt4=",
+          "derLen": 294
+        },
+        "signatureAlgorithm": {
+          "oid": "1.2.840.113549.1.1.11",
+          "name": "sha256WithRSAEncryption",
+          "parameters": null
+        },
+        "extensions": {
+          "subjectAltNames": [
+            {
+              "kind": "dns",
+              "value": "example.com"
+            },
+            {
+              "kind": "dns",
+              "value": "*.example.com"
+            },
+            {
+              "kind": "ip",
+              "value": "192.0.2.10"
+            },
+            {
+              "kind": "ip",
+              "value": "2001:db8::1"
+            },
+            {
+              "kind": "email",
+              "value": "admin@example.com"
+            },
+            {
+              "kind": "uri",
+              "value": "https://example.com/"
+            }
+          ],
+          "issuerAltNames": [],
+          "basicConstraints": {
+            "ca": false,
+            "pathLenConstraint": null
+          },
+          "keyUsage": [
+            "digitalSignature",
+            "keyEncipherment"
+          ],
+          "extendedKeyUsage": [
+            "serverAuth",
+            "clientAuth"
+          ],
+          "subjectKeyId": "2c:92:ae:38:c2:d5:f8:f9:24:55:b1:4a:77:c3:a3:09:6f:c5:ac:12",
+          "authorityKeyId": "2c:92:ae:38:c2:d5:f8:f9:24:55:b1:4a:77:c3:a3:09:6f:c5:ac:12",
+          "crlDistributionPoints": [
+            "http://crl.example.com/ca.crl"
+          ],
+          "authorityInfoAccess": [
+            {
+              "method": "ocsp",
+              "location": "http://ocsp.example.com"
+            },
+            {
+              "method": "caIssuers",
+              "location": "http://ca.example.com/ca.crt"
+            }
+          ],
+          "certificatePolicies": [
+            "domain-validated (2.23.140.1.2.1)"
+          ],
+          "unhandledCritical": [],
+          "others": []
+        },
+        "fingerprints": {
+          "sha1": "24:48:6d:d2:c2:a3:ca:7d:a5:ba:4b:d6:80:bc:5f:af:ff:0a:be:e2",
+          "sha256": "99:da:d8:e5:dc:19:0f:95:38:64:3a:8f:b7:c0:3f:3c:d2:be:9c:d3:a8:ee:73:ce:ac:61:d8:ca:c3:51:11:25"
+        },
+        "selfIssued": true,
+        "derLen": 1255
+      }
+    ],
+    "chains": [
+      {
+        "indices": [
+          0
+        ],
+        "complete": true,
+        "selfSignedOnly": true,
+        "diagnostics": []
+      }
+    ],
+    "diagnostics": [
+      {
+        "level": "warning",
+        "code": "LIFETIME_TOO_LONG",
+        "message": "valid for 3653 days; CA/Browser Forum caps TLS server certificates at 398",
+        "item": 0
+      }
+    ]
+  },
+  "evaluatedAt": 1717200000,
+  "certificates": [
+    {
+      "index": 0,
+      "validity": {
+        "state": "valid",
+        "secondsRemaining": 302486400,
+        "secondsUntilValid": -13132800
+      },
+      "hostname": null,
+      "diagnostics": [
+        {
+          "level": "warning",
+          "code": "LIFETIME_TOO_LONG",
+          "message": "valid for 3653 days; CA/Browser Forum caps TLS server certificates at 398",
+          "item": 0
+        }
+      ]
+    }
+  ]
+}

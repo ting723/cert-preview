@@ -1,0 +1,16 @@
+{
+  "name": "cert-preview-web-demo",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Browser demo for cert-preview (Rust -> WebAssembly). Imports the public package from TypeScript.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -p tsconfig.web.json && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "vite": "^5.4.0"
+  }
+}

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cert-preview · 零构建演示（importmap）</title>
+    <style>
+      :root { color-scheme: light; }
+      body { font-family: ui-sans-serif, system-ui, "PingFang SC", "Microsoft YaHei", sans-serif; max-width: 880px; margin: 0 auto; padding: 24px 20px; color: #1c2330; background: #f7f8fb; }
+      h1 { font-size: 20px; margin: 0 0 6px; }
+      p.lead { color: #5b6472; line-height: 1.6; margin: 0 0 16px; }
+      code { background: #e9edf3; padding: 1px 5px; border-radius: 4px; font-size: 12.5px; }
+      .panel { background: #fff; border: 1px solid #dfe3ea; border-radius: 10px; padding: 16px; }
+      .row { display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; font-size: 13px; color: #5b6472; }
+      select, input, textarea { background: #fbfcfe; border: 1px solid #cfd6e1; border-radius: 6px; padding: 8px 10px; font-size: 13px; font-family: inherit; color: #1c2330; }
+      textarea { width: 100%; resize: vertical; font-family: ui-monospace, Menlo, monospace; font-size: 12px; }
+      .btns { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0; }
+      button { background: #2f6fed; color: #fff; border: 0; border-radius: 7px; padding: 9px 14px; font-size: 13px; font-weight: 600; cursor: pointer; }
+      button:hover { filter: brightness(1.07); }
+      button.ghost { background: #eef1f6; color: #2a3242; }
+      pre { background: #0f1117; color: #e6e8ee; border-radius: 8px; padding: 12px; font-size: 12px; line-height: 1.55; overflow: auto; max-height: 520px; font-family: ui-monospace, Menlo, monospace; white-space: pre-wrap; word-break: break-all; margin: 0; }
+      .hint { color: #5b6472; font-size: 13px; }
+      .badge { display: inline-block; background: #e7f0ff; color: #2f6fed; border-radius: 5px; padding: 2px 8px; font-size: 12px; font-weight: 600; }
+    </style>
+
+    <!-- 直接用 importmap 把裸模块名映射到已编译的 WebAssembly（wasm-pack --target web 产物）。
+         无需任何打包器：浏览器原生 ESM 即可加载。 -->
+    <script type="importmap">
+      {
+        "imports": {
+          "cert_wasm": "/packages/cert-preview/pkg-web/cert_wasm.js"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>cert-preview · 零构建演示 <span class="badge">no bundler</span></h1>
+    <p class="lead">
+      不依赖 Vite / webpack：直接用浏览器原生 ESM + <code>importmap</code> 加载已编译的
+      WebAssembly，并通过一个极简静态服务器（<code>serve.mjs</code>）读取 fixtures 与 wasm。
+      这是把 <code>cert-preview</code> 接进任意前端工程最薄的一条路径。
+    </p>
+
+    <div class="panel">
+      <div class="row">
+        <span>示例（从静态服务器读取 fixtures）</span>
+        <select id="scenario"></select>
+      </div>
+      <textarea id="input" rows="10" placeholder="粘贴 PEM / 文本，或选择上方示例"></textarea>
+      <div class="row" style="flex-direction: row; gap: 16px; align-items: flex-end;">
+        <span style="display:flex; flex-direction:column; gap:5px;">主机名（可选）<input id="hostname" placeholder="如 www.example.com" /></span>
+        <span style="display:flex; flex-direction:column; gap:5px;">now 秒（可选）<input id="now" placeholder="留空=当前时间" /></span>
+      </div>
+      <div class="btns">
+        <button id="btn-json">JSON</button>
+        <button id="btn-text" class="ghost">文本</button>
+        <button id="btn-table" class="ghost">表格</button>
+        <button id="btn-error" class="ghost">错误分支</button>
+      </div>
+      <pre id="output">点击上方按钮查看输出。</pre>
+    </div>
+
+    <script type="module">
+      import init, { inspectJson, inspectText, inspectTable, inspect } from "cert_wasm";
+
+      const enc = new TextEncoder();
+      const $ = (id) => document.getElementById(id);
+      const out = (s) => { $("output").textContent = s; };
+      const nowArg = () => { const v = $("now").value.trim(); return v ? BigInt(v) : BigInt(Math.floor(Date.now() / 1000)); };
+      const hostArg = () => { const v = $("hostname").value.trim(); return v ? v : null; };
+      const textBytes = () => enc.encode($("input").value);
+
+      const scenarios = [
+        { name: "完整链 chain.pem", path: "/fixtures/certs/chain.pem", type: "text", host: "" },
+        { name: "单叶子 leaf.pem", path: "/fixtures/certs/leaf.pem", type: "text", host: "" },
+        { name: "不完整链 chain-incomplete.pem", path: "/fixtures/certs/chain-incomplete.pem", type: "text", host: "" },
+        { name: "RSA 叶子 · SAN 匹配 rsa-leaf.pem", path: "/fixtures/certs/rsa-leaf.pem", type: "text", host: "www.example.com" },
+        { name: "RSA 叶子 · 主机名不匹配", path: "/fixtures/certs/rsa-leaf.pem", type: "text", host: "mail.example.org" },
+        { name: "EC 证书 ec-leaf.pem", path: "/fixtures/certs/ec-leaf.pem", type: "text", host: "" },
+        { name: "RSA 私钥 rsa-2048.pkcs8.pem", path: "/fixtures/keys/rsa-2048.pkcs8.pem", type: "text", host: "" },
+        { name: "加密私钥 rsa-2048.encrypted.pem", path: "/fixtures/keys/rsa-2048.encrypted.pem", type: "text", host: "" },
+        { name: "DER 二进制 leaf.der", path: "/fixtures/certs/leaf.der", type: "bin", host: "" },
+      ];
+
+      try {
+        await init(); // 浏览器目标需要异步 init() 一次
+
+        let der = null;
+        const sel = $("scenario");
+        for (const s of scenarios) {
+          const o = document.createElement("option");
+          o.value = s.name; o.textContent = s.name; sel.appendChild(o);
+        }
+        sel.addEventListener("change", async () => {
+          const s = scenarios.find((x) => x.name === sel.value);
+          if (!s) return;
+          if (s.type === "bin") {
+            const buf = await (await fetch(s.path)).arrayBuffer();
+            der = new Uint8Array(buf);
+            $("input").value = "(DER 二进制，已加载 " + buf.byteLength + " bytes)";
+            $("input").disabled = true;
+          } else {
+            der = null;
+            $("input").value = await (await fetch(s.path)).text();
+            $("input").disabled = false;
+          }
+          $("hostname").value = s.host || "";
+        });
+        sel.dispatchEvent(new Event("change"));
+
+        const currentBytes = () => der || textBytes();
+        $("btn-json").onclick = () => out(inspectJson(currentBytes(), nowArg(), hostArg()));
+        $("btn-text").onclick = () => out(inspectText(currentBytes(), nowArg(), hostArg()));
+        $("btn-table").onclick = () => out(inspectTable(currentBytes(), nowArg(), hostArg()));
+        $("btn-error").onclick = () => {
+          try {
+            inspect(enc.encode("这显然不是证书"), 1717200000n, null);
+            out("未抛错（不符合预期）");
+          } catch (e) {
+            out("CertViewError\n  code   : " + e.code + "\n  offset : " + e.offset + "\n  message: " + e.message);
+          }
+        };
+      } catch (e) {
+        out("初始化失败：" + (e instanceof Error ? e.message : String(e)) +
+          "\n请通过 serve.mjs 提供的本地服务器打开，不要直接用 file:// 打开。");
+      }
+    </script>
+  </body>
+</html>

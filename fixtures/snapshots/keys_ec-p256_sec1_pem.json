@@ -1,0 +1,25 @@
+{
+  "bundle": {
+    "sourceFormat": "PEM",
+    "items": [
+      {
+        "kind": "privateKey",
+        "format": "sec1",
+        "algorithm": {
+          "oid": "1.2.840.10045.2.1",
+          "name": "id-ecPublicKey",
+          "parameters": "prime256v1"
+        },
+        "keySizeBits": 256,
+        "curve": "prime256v1",
+        "encrypted": false,
+        "publicKey": null,
+        "derLen": 121
+      }
+    ],
+    "chains": [],
+    "diagnostics": []
+  },
+  "evaluatedAt": 1717200000,
+  "certificates": []
+}

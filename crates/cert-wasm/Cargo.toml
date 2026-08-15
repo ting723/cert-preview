@@ -1,0 +1,34 @@
+[package]
+name = "cert-wasm"
+description = "WebAssembly bindings for cert-core"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+publish = false
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+doctest = false
+
+[features]
+default = ["console_error_panic_hook"]
+console_error_panic_hook = ["dep:console_error_panic_hook"]
+
+[dependencies]
+cert-core = { workspace = true, features = ["x509", "key", "json", "text"] }
+console_error_panic_hook = { version = "0.1", optional = true }
+serde = { workspace = true }
+serde-wasm-bindgen = "0.6"
+wasm-bindgen = "0.2"
+
+[dev-dependencies]
+wasm-bindgen-test = "0.3"
+
+# Skip the binaryen `wasm-opt` step: it requires a network download of the
+# binaryen release and only performs size optimisation. The unoptimised wasm
+# is correct and self-contained.
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = false

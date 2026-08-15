@@ -1,0 +1,18 @@
+[package]
+name = "cert-cli"
+description = "Command line certificate viewer built on cert-core"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[[bin]]
+name = "certview"
+path = "src/main.rs"
+
+[dependencies]
+cert-core = { workspace = true, features = ["x509", "key", "json", "text"] }
+clap = { version = "4", features = ["derive"] }
+serde_json = { workspace = true }

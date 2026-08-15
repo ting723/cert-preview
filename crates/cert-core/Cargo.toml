@@ -1,0 +1,37 @@
+[package]
+name = "cert-core"
+description = "Platform-agnostic certificate parsing, inspection and formatting core"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[features]
+default = ["x509", "key", "json", "text"]
+# Object kinds
+x509 = []
+key = []
+# Output renderers
+json = ["dep:serde_json"]
+text = []
+# Emit TypeScript definitions from the domain model (dev/codegen only).
+ts = ["dep:ts-rs"]
+
+[dependencies]
+asn1-rs = { workspace = true }
+base64 = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true, optional = true }
+sha1 = { workspace = true }
+sha2 = { workspace = true }
+thiserror = { workspace = true }
+ts-rs = { version = "12", optional = true }
+x509-parser = { workspace = true }
+
+[dev-dependencies]
+serde_json = { workspace = true }
+
+[lib]
+doctest = false

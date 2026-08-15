@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "@types/node": "^26.1.2"
+  },
+  "dependencies": {
+    "tsx": "^4.23.12"
+  }
+}
