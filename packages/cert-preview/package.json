@@ -1,0 +1,47 @@
+{
+  "name": "cert-preview",
+  "version": "1.0.0",
+  "description": "X.509 certificate and key inspection compiled to WebAssembly — same core as the CLI, identical output across platforms.",
+  "type": "module",
+  "sideEffects": false,
+  "license": "MIT",
+  "repository": "https://github.com/ting723/cert-preview",
+  "files": [
+    "src",
+    "pkg-web",
+    "pkg-node"
+  ],
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts"
+    },
+    "./browser": {
+      "types": "./src/loader-browser.ts",
+      "import": "./src/loader-browser.ts"
+    },
+    "./node": {
+      "types": "./src/loader-node.ts",
+      "import": "./src/loader-node.ts"
+    },
+    "./generated/*": "./src/generated/*"
+  },
+  "scripts": {
+    "build:wasm:web": "wasm-pack build crates/cert-wasm --target web --out-dir packages/cert-preview/pkg-web",
+    "build:wasm:node": "wasm-pack build crates/cert-wasm --target nodejs --out-dir packages/cert-preview/pkg-node",
+    "build:wasm": "npm run build:wasm:web && npm run build:wasm:node",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx --test test/smoke.test.ts test/consistency.test.ts"
+  },
+  "devDependencies": {
+    "tsx": "^4.23.7",
+    "typescript": "^5.4.0"
+  },
+  "keywords": [
+    "x509",
+    "certificate",
+    "tls",
+    "wasm",
+    "webassembly"
+  ]
+}

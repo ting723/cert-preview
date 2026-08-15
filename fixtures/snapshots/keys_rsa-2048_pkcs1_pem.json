@@ -1,0 +1,36 @@
+{
+  "bundle": {
+    "sourceFormat": "PEM",
+    "items": [
+      {
+        "kind": "privateKey",
+        "format": "pkcs1",
+        "algorithm": {
+          "oid": "1.2.840.113549.1.1.1",
+          "name": "rsaEncryption",
+          "parameters": null
+        },
+        "keySizeBits": 2048,
+        "curve": null,
+        "encrypted": false,
+        "publicKey": {
+          "algorithm": {
+            "oid": "1.2.840.113549.1.1.1",
+            "name": "rsaEncryption",
+            "parameters": null
+          },
+          "keySizeBits": 2048,
+          "curve": null,
+          "rsaExponent": "65537",
+          "spkiSha256": "KVi1NTLbxPY+oeDDfghKG4G31HMg7bNC/KliMNgiNt4=",
+          "derLen": 294
+        },
+        "derLen": 1192
+      }
+    ],
+    "chains": [],
+    "diagnostics": []
+  },
+  "evaluatedAt": 1717200000,
+  "certificates": []
+}

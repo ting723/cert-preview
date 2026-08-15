@@ -1,0 +1,388 @@
+{
+  "bundle": {
+    "sourceFormat": "PEM",
+    "items": [
+      {
+        "kind": "certificate",
+        "version": 3,
+        "serialNumber": "20:02",
+        "subject": {
+          "rdns": [
+            {
+              "oid": "2.5.4.6",
+              "shortName": "C",
+              "value": "GB"
+            },
+            {
+              "oid": "2.5.4.10",
+              "shortName": "O",
+              "value": "Example Ltd"
+            },
+            {
+              "oid": "2.5.4.3",
+              "shortName": "CN",
+              "value": "www.example.org"
+            }
+          ],
+          "commonName": "www.example.org",
+          "organization": "Example Ltd",
+          "organizationalUnit": null,
+          "country": "GB",
+          "state": null,
+          "locality": null,
+          "email": null,
+          "rfc4514": "CN=www.example.org,O=Example Ltd,C=GB"
+        },
+        "issuer": {
+          "rdns": [
+            {
+              "oid": "2.5.4.6",
+              "shortName": "C",
+              "value": "GB"
+            },
+            {
+              "oid": "2.5.4.10",
+              "shortName": "O",
+              "value": "Example Trust"
+            },
+            {
+              "oid": "2.5.4.3",
+              "shortName": "CN",
+              "value": "Example Issuing CA"
+            }
+          ],
+          "commonName": "Example Issuing CA",
+          "organization": "Example Trust",
+          "organizationalUnit": null,
+          "country": "GB",
+          "state": null,
+          "locality": null,
+          "email": null,
+          "rfc4514": "CN=Example Issuing CA,O=Example Trust,C=GB"
+        },
+        "validity": {
+          "notBefore": 1704067200,
+          "notAfter": 1735689600,
+          "notBeforeUtc": "2024-01-01T00:00:00Z",
+          "notAfterUtc": "2025-01-01T00:00:00Z"
+        },
+        "publicKey": {
+          "algorithm": {
+            "oid": "1.2.840.113549.1.1.1",
+            "name": "rsaEncryption",
+            "parameters": null
+          },
+          "keySizeBits": 2048,
+          "curve": null,
+          "rsaExponent": "65537",
+          "spkiSha256": "q1WwA9aeibgAZgl18yc/Vq8POz4ZPnGIxPTZ6rEyyRg=",
+          "derLen": 294
+        },
+        "signatureAlgorithm": {
+          "oid": "1.2.840.113549.1.1.11",
+          "name": "sha256WithRSAEncryption",
+          "parameters": null
+        },
+        "extensions": {
+          "subjectAltNames": [
+            {
+              "kind": "dns",
+              "value": "www.example.org"
+            },
+            {
+              "kind": "dns",
+              "value": "example.org"
+            }
+          ],
+          "issuerAltNames": [],
+          "basicConstraints": {
+            "ca": false,
+            "pathLenConstraint": null
+          },
+          "keyUsage": [
+            "digitalSignature",
+            "keyEncipherment"
+          ],
+          "extendedKeyUsage": [
+            "serverAuth"
+          ],
+          "subjectKeyId": "38:2f:85:1f:55:af:27:ac:ad:8e:4b:51:ae:60:c4:33:25:ab:a6:15",
+          "authorityKeyId": "e8:24:1a:30:40:78:85:dd:ba:fa:9d:78:fb:87:01:b3:f3:da:74:24",
+          "crlDistributionPoints": [],
+          "authorityInfoAccess": [],
+          "certificatePolicies": [],
+          "unhandledCritical": [],
+          "others": []
+        },
+        "fingerprints": {
+          "sha1": "31:61:f1:ef:93:13:4f:00:41:02:01:ef:a3:1d:55:83:8e:ea:31:f3",
+          "sha256": "e6:49:eb:36:7c:60:30:e0:dd:f1:4f:4d:22:84:24:ac:c6:66:80:a3:77:24:84:d4:98:d5:f5:b0:db:1a:5c:61"
+        },
+        "selfIssued": false,
+        "derLen": 927
+      },
+      {
+        "kind": "certificate",
+        "version": 3,
+        "serialNumber": "10:01",
+        "subject": {
+          "rdns": [
+            {
+              "oid": "2.5.4.6",
+              "shortName": "C",
+              "value": "GB"
+            },
+            {
+              "oid": "2.5.4.10",
+              "shortName": "O",
+              "value": "Example Trust"
+            },
+            {
+              "oid": "2.5.4.3",
+              "shortName": "CN",
+              "value": "Example Issuing CA"
+            }
+          ],
+          "commonName": "Example Issuing CA",
+          "organization": "Example Trust",
+          "organizationalUnit": null,
+          "country": "GB",
+          "state": null,
+          "locality": null,
+          "email": null,
+          "rfc4514": "CN=Example Issuing CA,O=Example Trust,C=GB"
+        },
+        "issuer": {
+          "rdns": [
+            {
+              "oid": "2.5.4.6",
+              "shortName": "C",
+              "value": "GB"
+            },
+            {
+              "oid": "2.5.4.10",
+              "shortName": "O",
+              "value": "Example Trust"
+            },
+            {
+              "oid": "2.5.4.3",
+              "shortName": "CN",
+              "value": "Example Root CA"
+            }
+          ],
+          "commonName": "Example Root CA",
+          "organization": "Example Trust",
+          "organizationalUnit": null,
+          "country": "GB",
+          "state": null,
+          "locality": null,
+          "email": null,
+          "rfc4514": "CN=Example Root CA,O=Example Trust,C=GB"
+        },
+        "validity": {
+          "notBefore": 1704067200,
+          "notAfter": 2019686400,
+          "notBeforeUtc": "2024-01-01T00:00:00Z",
+          "notAfterUtc": "2034-01-01T00:00:00Z"
+        },
+        "publicKey": {
+          "algorithm": {
+            "oid": "1.2.840.113549.1.1.1",
+            "name": "rsaEncryption",
+            "parameters": null
+          },
+          "keySizeBits": 2048,
+          "curve": null,
+          "rsaExponent": "65537",
+          "spkiSha256": "FzhD4Tyas/01ZihTLT6a0YazrQluzejpF+2zzFX2TYM=",
+          "derLen": 294
+        },
+        "signatureAlgorithm": {
+          "oid": "1.2.840.113549.1.1.11",
+          "name": "sha256WithRSAEncryption",
+          "parameters": null
+        },
+        "extensions": {
+          "subjectAltNames": [],
+          "issuerAltNames": [],
+          "basicConstraints": {
+            "ca": true,
+            "pathLenConstraint": 0
+          },
+          "keyUsage": [
+            "keyCertSign",
+            "cRLSign"
+          ],
+          "extendedKeyUsage": [],
+          "subjectKeyId": "e8:24:1a:30:40:78:85:dd:ba:fa:9d:78:fb:87:01:b3:f3:da:74:24",
+          "authorityKeyId": "c5:c5:59:56:21:13:1b:b2:ad:91:38:90:99:6e:9b:7d:c1:ed:88:c1",
+          "crlDistributionPoints": [],
+          "authorityInfoAccess": [],
+          "certificatePolicies": [],
+          "unhandledCritical": [],
+          "others": []
+        },
+        "fingerprints": {
+          "sha1": "08:59:a4:60:7d:37:53:75:ab:6f:33:0b:ce:aa:ef:7f:6e:99:37:c2",
+          "sha256": "7f:21:14:fe:80:4b:29:4a:25:f1:70:05:90:ab:0b:04:3d:43:62:2f:b7:be:4f:45:4e:c3:bb:df:2d:e1:11:f1"
+        },
+        "selfIssued": false,
+        "derLen": 871
+      },
+      {
+        "kind": "certificate",
+        "version": 3,
+        "serialNumber": "43:58:8b:90:e9:a4:e4:b0:94:eb:d8:b4:5e:51:3b:38:2f:ae:91:ec",
+        "subject": {
+          "rdns": [
+            {
+              "oid": "2.5.4.6",
+              "shortName": "C",
+              "value": "GB"
+            },
+            {
+              "oid": "2.5.4.10",
+              "shortName": "O",
+              "value": "Example Trust"
+            },
+            {
+              "oid": "2.5.4.3",
+              "shortName": "CN",
+              "value": "Example Root CA"
+            }
+          ],
+          "commonName": "Example Root CA",
+          "organization": "Example Trust",
+          "organizationalUnit": null,
+          "country": "GB",
+          "state": null,
+          "locality": null,
+          "email": null,
+          "rfc4514": "CN=Example Root CA,O=Example Trust,C=GB"
+        },
+        "issuer": {
+          "rdns": [
+            {
+              "oid": "2.5.4.6",
+              "shortName": "C",
+              "value": "GB"
+            },
+            {
+              "oid": "2.5.4.10",
+              "shortName": "O",
+              "value": "Example Trust"
+            },
+            {
+              "oid": "2.5.4.3",
+              "shortName": "CN",
+              "value": "Example Root CA"
+            }
+          ],
+          "commonName": "Example Root CA",
+          "organization": "Example Trust",
+          "organizationalUnit": null,
+          "country": "GB",
+          "state": null,
+          "locality": null,
+          "email": null,
+          "rfc4514": "CN=Example Root CA,O=Example Trust,C=GB"
+        },
+        "validity": {
+          "notBefore": 1704067200,
+          "notAfter": 2019686400,
+          "notBeforeUtc": "2024-01-01T00:00:00Z",
+          "notAfterUtc": "2034-01-01T00:00:00Z"
+        },
+        "publicKey": {
+          "algorithm": {
+            "oid": "1.2.840.113549.1.1.1",
+            "name": "rsaEncryption",
+            "parameters": null
+          },
+          "keySizeBits": 2048,
+          "curve": null,
+          "rsaExponent": "65537",
+          "spkiSha256": "2CbhelfsdX+AkSHo+0baNnDhaC424R9iZk4TGgUmrO4=",
+          "derLen": 294
+        },
+        "signatureAlgorithm": {
+          "oid": "1.2.840.113549.1.1.11",
+          "name": "sha256WithRSAEncryption",
+          "parameters": null
+        },
+        "extensions": {
+          "subjectAltNames": [],
+          "issuerAltNames": [],
+          "basicConstraints": {
+            "ca": true,
+            "pathLenConstraint": null
+          },
+          "keyUsage": [
+            "keyCertSign",
+            "cRLSign"
+          ],
+          "extendedKeyUsage": [],
+          "subjectKeyId": "c5:c5:59:56:21:13:1b:b2:ad:91:38:90:99:6e:9b:7d:c1:ed:88:c1",
+          "authorityKeyId": "c5:c5:59:56:21:13:1b:b2:ad:91:38:90:99:6e:9b:7d:c1:ed:88:c1",
+          "crlDistributionPoints": [],
+          "authorityInfoAccess": [],
+          "certificatePolicies": [],
+          "unhandledCritical": [],
+          "others": []
+        },
+        "fingerprints": {
+          "sha1": "4f:57:2a:97:64:f1:a7:99:82:4e:47:2f:0f:c9:4f:33:af:6d:4d:53",
+          "sha256": "92:ea:91:87:01:8d:fd:01:e4:f9:d8:58:7e:19:04:c2:8b:7f:34:e5:49:a7:ec:02:11:1d:24:39:1a:b7:a1:85"
+        },
+        "selfIssued": true,
+        "derLen": 883
+      }
+    ],
+    "chains": [
+      {
+        "indices": [
+          0,
+          1,
+          2
+        ],
+        "complete": true,
+        "selfSignedOnly": false,
+        "diagnostics": []
+      }
+    ],
+    "diagnostics": []
+  },
+  "evaluatedAt": 1717200000,
+  "certificates": [
+    {
+      "index": 0,
+      "validity": {
+        "state": "valid",
+        "secondsRemaining": 18489600,
+        "secondsUntilValid": -13132800
+      },
+      "hostname": null,
+      "diagnostics": []
+    },
+    {
+      "index": 1,
+      "validity": {
+        "state": "valid",
+        "secondsRemaining": 302486400,
+        "secondsUntilValid": -13132800
+      },
+      "hostname": null,
+      "diagnostics": []
+    },
+    {
+      "index": 2,
+      "validity": {
+        "state": "valid",
+        "secondsRemaining": 302486400,
+        "secondsUntilValid": -13132800
+      },
+      "hostname": null,
+      "diagnostics": []
+    }
+  ]
+}

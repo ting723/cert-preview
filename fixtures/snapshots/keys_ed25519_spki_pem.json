@@ -1,0 +1,24 @@
+{
+  "bundle": {
+    "sourceFormat": "PEM",
+    "items": [
+      {
+        "kind": "publicKey",
+        "algorithm": {
+          "oid": "1.3.101.112",
+          "name": "Ed25519",
+          "parameters": null
+        },
+        "keySizeBits": 256,
+        "curve": null,
+        "rsaExponent": null,
+        "spkiSha256": "C+XmA0Sz4KMaVT9Py2qld7Y+4hDnWEZKW4fwR4SbVo0=",
+        "derLen": 44
+      }
+    ],
+    "chains": [],
+    "diagnostics": []
+  },
+  "evaluatedAt": 1717200000,
+  "certificates": []
+}

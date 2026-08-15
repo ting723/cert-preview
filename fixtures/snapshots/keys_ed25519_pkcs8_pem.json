@@ -1,0 +1,25 @@
+{
+  "bundle": {
+    "sourceFormat": "PEM",
+    "items": [
+      {
+        "kind": "privateKey",
+        "format": "pkcs8",
+        "algorithm": {
+          "oid": "1.3.101.112",
+          "name": "Ed25519",
+          "parameters": null
+        },
+        "keySizeBits": 256,
+        "curve": null,
+        "encrypted": false,
+        "publicKey": null,
+        "derLen": 48
+      }
+    ],
+    "chains": [],
+    "diagnostics": []
+  },
+  "evaluatedAt": 1717200000,
+  "certificates": []
+}

@@ -1,0 +1,21 @@
+{
+  "name": "cert-preview-react-demo",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "React demo for cert-preview (Rust -> WebAssembly). Shows a reusable <CertViewer> component and an interactive playground.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -p tsconfig.json && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.4.0",
+    "vite": "^5.4.0"
+  }
+}

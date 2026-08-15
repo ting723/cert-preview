@@ -1,0 +1,157 @@
+{
+  "bundle": {
+    "sourceFormat": "PEM",
+    "items": [
+      {
+        "kind": "certificate",
+        "version": 3,
+        "serialNumber": "20:02",
+        "subject": {
+          "rdns": [
+            {
+              "oid": "2.5.4.6",
+              "shortName": "C",
+              "value": "GB"
+            },
+            {
+              "oid": "2.5.4.10",
+              "shortName": "O",
+              "value": "Example Ltd"
+            },
+            {
+              "oid": "2.5.4.3",
+              "shortName": "CN",
+              "value": "www.example.org"
+            }
+          ],
+          "commonName": "www.example.org",
+          "organization": "Example Ltd",
+          "organizationalUnit": null,
+          "country": "GB",
+          "state": null,
+          "locality": null,
+          "email": null,
+          "rfc4514": "CN=www.example.org,O=Example Ltd,C=GB"
+        },
+        "issuer": {
+          "rdns": [
+            {
+              "oid": "2.5.4.6",
+              "shortName": "C",
+              "value": "GB"
+            },
+            {
+              "oid": "2.5.4.10",
+              "shortName": "O",
+              "value": "Example Trust"
+            },
+            {
+              "oid": "2.5.4.3",
+              "shortName": "CN",
+              "value": "Example Issuing CA"
+            }
+          ],
+          "commonName": "Example Issuing CA",
+          "organization": "Example Trust",
+          "organizationalUnit": null,
+          "country": "GB",
+          "state": null,
+          "locality": null,
+          "email": null,
+          "rfc4514": "CN=Example Issuing CA,O=Example Trust,C=GB"
+        },
+        "validity": {
+          "notBefore": 1704067200,
+          "notAfter": 1735689600,
+          "notBeforeUtc": "2024-01-01T00:00:00Z",
+          "notAfterUtc": "2025-01-01T00:00:00Z"
+        },
+        "publicKey": {
+          "algorithm": {
+            "oid": "1.2.840.113549.1.1.1",
+            "name": "rsaEncryption",
+            "parameters": null
+          },
+          "keySizeBits": 2048,
+          "curve": null,
+          "rsaExponent": "65537",
+          "spkiSha256": "q1WwA9aeibgAZgl18yc/Vq8POz4ZPnGIxPTZ6rEyyRg=",
+          "derLen": 294
+        },
+        "signatureAlgorithm": {
+          "oid": "1.2.840.113549.1.1.11",
+          "name": "sha256WithRSAEncryption",
+          "parameters": null
+        },
+        "extensions": {
+          "subjectAltNames": [
+            {
+              "kind": "dns",
+              "value": "www.example.org"
+            },
+            {
+              "kind": "dns",
+              "value": "example.org"
+            }
+          ],
+          "issuerAltNames": [],
+          "basicConstraints": {
+            "ca": false,
+            "pathLenConstraint": null
+          },
+          "keyUsage": [
+            "digitalSignature",
+            "keyEncipherment"
+          ],
+          "extendedKeyUsage": [
+            "serverAuth"
+          ],
+          "subjectKeyId": "38:2f:85:1f:55:af:27:ac:ad:8e:4b:51:ae:60:c4:33:25:ab:a6:15",
+          "authorityKeyId": "e8:24:1a:30:40:78:85:dd:ba:fa:9d:78:fb:87:01:b3:f3:da:74:24",
+          "crlDistributionPoints": [],
+          "authorityInfoAccess": [],
+          "certificatePolicies": [],
+          "unhandledCritical": [],
+          "others": []
+        },
+        "fingerprints": {
+          "sha1": "31:61:f1:ef:93:13:4f:00:41:02:01:ef:a3:1d:55:83:8e:ea:31:f3",
+          "sha256": "e6:49:eb:36:7c:60:30:e0:dd:f1:4f:4d:22:84:24:ac:c6:66:80:a3:77:24:84:d4:98:d5:f5:b0:db:1a:5c:61"
+        },
+        "selfIssued": false,
+        "derLen": 927
+      }
+    ],
+    "chains": [
+      {
+        "indices": [
+          0
+        ],
+        "complete": false,
+        "selfSignedOnly": false,
+        "diagnostics": [
+          {
+            "level": "warning",
+            "code": "CHAIN_INCOMPLETE",
+            "message": "issuer chain does not reach a self-signed root present in the bundle",
+            "item": null
+          }
+        ]
+      }
+    ],
+    "diagnostics": []
+  },
+  "evaluatedAt": 1717200000,
+  "certificates": [
+    {
+      "index": 0,
+      "validity": {
+        "state": "valid",
+        "secondsRemaining": 18489600,
+        "secondsUntilValid": -13132800
+      },
+      "hostname": null,
+      "diagnostics": []
+    }
+  ]
+}

@@ -1,0 +1,161 @@
+{
+  "bundle": {
+    "sourceFormat": "PEM",
+    "items": [
+      {
+        "kind": "certificate",
+        "version": 3,
+        "serialNumber": "0d:f7:19:a4:e8:5b:6e:c0:75:3d:5e:00:ed:f6:15:0f:cd:33:9c:12",
+        "subject": {
+          "rdns": [
+            {
+              "oid": "2.5.4.6",
+              "shortName": "C",
+              "value": "GB"
+            },
+            {
+              "oid": "2.5.4.8",
+              "shortName": "ST",
+              "value": "Greater London"
+            },
+            {
+              "oid": "2.5.4.7",
+              "shortName": "L",
+              "value": "London"
+            },
+            {
+              "oid": "2.5.4.10",
+              "shortName": "O",
+              "value": "Example Ltd"
+            },
+            {
+              "oid": "2.5.4.3",
+              "shortName": "CN",
+              "value": "ec.example.com"
+            }
+          ],
+          "commonName": "ec.example.com",
+          "organization": "Example Ltd",
+          "organizationalUnit": null,
+          "country": "GB",
+          "state": "Greater London",
+          "locality": "London",
+          "email": null,
+          "rfc4514": "CN=ec.example.com,O=Example Ltd,L=London,ST=Greater London,C=GB"
+        },
+        "issuer": {
+          "rdns": [
+            {
+              "oid": "2.5.4.6",
+              "shortName": "C",
+              "value": "GB"
+            },
+            {
+              "oid": "2.5.4.8",
+              "shortName": "ST",
+              "value": "Greater London"
+            },
+            {
+              "oid": "2.5.4.7",
+              "shortName": "L",
+              "value": "London"
+            },
+            {
+              "oid": "2.5.4.10",
+              "shortName": "O",
+              "value": "Example Ltd"
+            },
+            {
+              "oid": "2.5.4.3",
+              "shortName": "CN",
+              "value": "ec.example.com"
+            }
+          ],
+          "commonName": "ec.example.com",
+          "organization": "Example Ltd",
+          "organizationalUnit": null,
+          "country": "GB",
+          "state": "Greater London",
+          "locality": "London",
+          "email": null,
+          "rfc4514": "CN=ec.example.com,O=Example Ltd,L=London,ST=Greater London,C=GB"
+        },
+        "validity": {
+          "notBefore": 1704067200,
+          "notAfter": 2019686400,
+          "notBeforeUtc": "2024-01-01T00:00:00Z",
+          "notAfterUtc": "2034-01-01T00:00:00Z"
+        },
+        "publicKey": {
+          "algorithm": {
+            "oid": "1.2.840.10045.2.1",
+            "name": "id-ecPublicKey",
+            "parameters": "prime256v1"
+          },
+          "keySizeBits": 256,
+          "curve": "prime256v1",
+          "rsaExponent": null,
+          "spkiSha256": "QIalYZgnZX21wrIQJP2rm/dthSVJXeO8kuH/8oSf/Nc=",
+          "derLen": 91
+        },
+        "signatureAlgorithm": {
+          "oid": "1.2.840.10045.4.3.2",
+          "name": "ecdsa-with-SHA256",
+          "parameters": null
+        },
+        "extensions": {
+          "subjectAltNames": [
+            {
+              "kind": "dns",
+              "value": "ec.example.com"
+            }
+          ],
+          "issuerAltNames": [],
+          "basicConstraints": {
+            "ca": false,
+            "pathLenConstraint": null
+          },
+          "keyUsage": [],
+          "extendedKeyUsage": [],
+          "subjectKeyId": "ab:a5:7b:59:ab:19:37:36:8f:50:f9:b9:89:05:ba:d0:86:0c:01:93",
+          "authorityKeyId": "ab:a5:7b:59:ab:19:37:36:8f:50:f9:b9:89:05:ba:d0:86:0c:01:93",
+          "crlDistributionPoints": [],
+          "authorityInfoAccess": [],
+          "certificatePolicies": [],
+          "unhandledCritical": [],
+          "others": []
+        },
+        "fingerprints": {
+          "sha1": "99:02:b6:f0:7f:5a:ac:ad:fa:15:9d:42:5c:57:1f:fa:41:b2:a8:4b",
+          "sha256": "1e:e4:31:40:a1:06:c4:1c:8d:b5:0d:a0:29:38:9e:f4:72:7a:b5:69:90:0a:b5:ee:05:99:5f:e3:ea:1e:ab:38"
+        },
+        "selfIssued": true,
+        "derLen": 572
+      }
+    ],
+    "chains": [
+      {
+        "indices": [
+          0
+        ],
+        "complete": true,
+        "selfSignedOnly": true,
+        "diagnostics": []
+      }
+    ],
+    "diagnostics": []
+  },
+  "evaluatedAt": 1717200000,
+  "certificates": [
+    {
+      "index": 0,
+      "validity": {
+        "state": "valid",
+        "secondsRemaining": 302486400,
+        "secondsUntilValid": -13132800
+      },
+      "hostname": null,
+      "diagnostics": []
+    }
+  ]
+}

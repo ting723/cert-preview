@@ -1,0 +1,25 @@
+{
+  "bundle": {
+    "sourceFormat": "PEM",
+    "items": [
+      {
+        "kind": "privateKey",
+        "format": "pkcs8Encrypted",
+        "algorithm": {
+          "oid": "1.2.840.113549.1.5.13",
+          "name": "PBES2",
+          "parameters": null
+        },
+        "keySizeBits": null,
+        "curve": null,
+        "encrypted": true,
+        "publicKey": null,
+        "derLen": 1337
+      }
+    ],
+    "chains": [],
+    "diagnostics": []
+  },
+  "evaluatedAt": 1717200000,
+  "certificates": []
+}
